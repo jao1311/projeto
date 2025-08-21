@@ -11,17 +11,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Transporte {
-  id            Int       
-  dataSaida     DateTime  
-  dataChegada   DateTime? 
-  motorista     String    
-  status        String
-
-  createdAt DateTime 
-  updatedAt DateTime 
-}
-
 
 model Material {
   id Int
@@ -36,3 +25,15 @@ model Material {
   createdAt DateTime
   updatedAt DataTime
 }
+
+model Transporte {
+  id            Int       
+  dataSaida     DateTime  
+  dataChegada   DateTime? 
+  motorista     String    
+  status        String
+
+  createdAt DateTime 
+  updatedAt DateTime 
+}
+
