@@ -10,3 +10,19 @@ datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
 }
+
+
+
+model Material {
+  id Int
+
+  materialName String
+  type String
+  pollutionLevel Float
+  weight Float
+  rewardPoints Int
+  amount Float
+
+  createdAt DateTime
+  updatedAt DataTime
+}
