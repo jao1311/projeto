@@ -38,3 +38,30 @@ model Material {
   createdAt DateTime
   updatedAt DataTime
 }
+
+model Enterprise{
+  id Int 
+
+  cnpj String
+  adress String
+  area String
+  name String
+  urlImage String
+  isActive Boolean
+
+  createdAt DateTime
+  updatedAt DataTime
+
+}
+
+model Transporte {
+  id            Int       
+  dataSaida     DateTime  
+  dataChegada   DateTime 
+  motorista     String    
+  status        String
+
+  createdAt DateTime 
+  updatedAt DateTime 
+}
+
