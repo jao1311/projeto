@@ -53,7 +53,7 @@ model Enterprise{
   updatedAt DataTime
 
 }
-
+// ainda não remova essa tabela
 model Transporte {
   id            Int @id @default( autoincremente() )       
   dataSaida     DateTime  
@@ -65,3 +65,14 @@ model Transporte {
   updatedAt DateTime 
 }
 
+model Machine {
+  id          Int      @id @default(autoincrement())
+  name        String   
+  type        String   
+  status      String   
+  capacidade  Float    
+  localizacao String   
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
