@@ -11,50 +11,46 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User{
-  userID Int @map("user_id")
-  user User @relation(fields: [userId], references: [Id] , onDelete: Cascade )
-  id Int @id @default( autoincrement() )
+model User {
+  id          Int         @id @default(autoincrement()) @map("user_id")
+  name        String
+  password    String
+  email       String      @unique
+  cpf         String      @unique
+  phone       String
 
-  name String
-  pass String
-  email String  @unique
-  cpf String    @unique
-  phone String
- 
-  createdAt DataTime
-  update Datatime
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
 }
 
 
 model Material {
-  id Int @id @default( autoincrement() )
-
-  materialName String
-  type String
+  id             Int       @id @default(autoincrement())
+  name           String
+  type           String
   pollutionLevel Float
-  weight Float
-  rewardPoints Int
-  amount Float
+  weight         Float
+  rewardPoints   Int
+  amount         Float
 
-  createdAt DateTime
-  updatedAt DataTime
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
 }
 
-model Enterprise{
-  id Int @id @default( autoincrement() ) 
+model Company {
+  id        Int      @id @default(autoincrement()) @map("company_id")
+  cnpj      String   @unique
+  address   String
+  area      String
+  name      String
+  imageUrl  String
+  isActive  Boolean
 
-  cnpj String @unique
-  adress String
-  area String
-  name String
-  urlImage String
-  isActive Boolean
-
-  createdAt DateTime
-  updatedAt DataTime
-
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
+
+
 // ainda não remova essa tabela
 model Transporte {
   id            Int @id @default( autoincrement() )       
@@ -68,17 +64,16 @@ model Transporte {
 }
 
 model Machine {
-  id          Int      @id @default(autoincrement())
-  name        String   
-  type        String   
-  stats      String   
-  amount  Float    
-  location String   
-  
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-}
+  id        Int      @id @default(autoincrement())
+  name      String
+  type      String
+  status    String
+  capacity  Float
+  location  String
 
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
 
 //FK -> User
 
