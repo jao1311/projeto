@@ -12,12 +12,14 @@ datasource db {
 }
 
 model User{
+  userID Int @map("user_id")
+  user User @relation(fields: [userId], references: [Id] , onDelete: Cascade )
   id Int @id @default( autoincrement() )
 
   name String
   pass String
-  email String
-  cpf String
+  email String  @unique
+  cpf String    @unique
   phone String
  
   createdAt DataTime
@@ -42,7 +44,7 @@ model Material {
 model Enterprise{
   id Int @id @default( autoincrement() ) 
 
-  cnpj String
+  cnpj String @unique
   adress String
   area String
   name String
@@ -76,3 +78,8 @@ model Machine {
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 }
+
+
+//FK -> User
+
+//Variavel Model relação (FK. PK, açao)
