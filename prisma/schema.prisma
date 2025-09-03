@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
   output   = "../generated/prisma"
@@ -11,75 +8,81 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User{
-  userID Int @map("user_id")
-  user User @relation(fields: [userId], references: [Id] , onDelete: Cascade )
-  id Int @id @default( autoincrement() )
+model User {
+  id        Int       @id @default(autoincrement())
+  email     String    @unique
+  pass      String
+  name      String
+  cpf       String    @unique
+  phone     String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
 
-  name String
-  pass String
-  email String  @unique
-  cpf String    @unique
-  phone String
- 
-  createdAt DataTime
-  update Datatime
+  // Relações
+  materials Material[]     @relation("UserMaterials") // um usuário pode descartar vários materiais
+  descartes Descarte[]
 }
-
 
 model Material {
-  id Int @id @default( autoincrement() )
-
-  materialName String
-  type String
+  id             Int       @id @default(autoincrement())
+  name           String
+  type           String
   pollutionLevel Float
-  weight Float
-  rewardPoints Int
-  amount Float
+  weight         Float
+  rewardPoints   Int
+  amount         Float
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
 
-  createdAt DateTime
-  updatedAt DataTime
+  // Relações
+  users     User[]     @relation("UserMaterials")
+  machines  Machine[]
 }
 
-model Enterprise{
-  id Int @id @default( autoincrement() ) 
+model Enterprise {
+  id        Int      @id @default(autoincrement())
+  cnpj      String   @unique
+  adress    String
+  area      String
+  name      String
+  urlImage  String
+  isActive  Boolean
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-  cnpj String @unique
-  adress String
-  area String
-  name String
-  urlImage String
-  isActive Boolean
-
-  createdAt DateTime
-  updatedAt DataTime
-
-}
-// ainda não remova essa tabela
-model Transporte {
-  id            Int @id @default( autoincrement() )       
-  dataSaida     DateTime  
-  dataChegada   DateTime 
-  motorista     String    
-  status        String
-
-  createdAt DateTime 
-  updatedAt DateTime 
+  // Relações
+  machines Machine[]
 }
 
 model Machine {
-  id          Int      @id @default(autoincrement())
-  name        String   
-  type        String   
-  stats      String   
-  amount  Float    
-  location String   
-  
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id          Int       @id @default(autoincrement())
+  name        String
+  type        String
+  status      String
+  capacidade  Float
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  // FKs
+  materialId   Int
+  enterpriseId Int
+
+  // Relações
+  material   Material   @relation(fields: [materialId], references: [id])
+  enterprise Enterprise @relation(fields: [enterpriseId], references: [id])
+  descartes  Descarte[]
 }
 
+model Descarte {
+  userId    Int
+  machineId Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-//FK -> User
+  // PK composta
+  @@id([userId, machineId])
 
-//Variavel Model relação (FK. PK, açao)
+  // Relações
+  user    User    @relation(fields: [userId], references: [id])
+  machine Machine @relation(fields: [machineId], references: [id])
+}
