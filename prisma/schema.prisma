@@ -22,7 +22,7 @@ model User {
   materials Material[]     @relation("UserMaterials") // um usuário pode descartar vários materiais
   descartes Descarte[]
 }
-
+//João
 model Material {
   id             Int       @id @default(autoincrement())
   name           String
@@ -59,7 +59,7 @@ model Machine {
   name        String
   type        String
   status      String
-  capacidade  Float
+  amoutn Float
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
 
