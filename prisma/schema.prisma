@@ -7,7 +7,8 @@ datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
 }
-//Rafaela
+
+// Rafaela
 model User {
   id        Int       @id @default(autoincrement())
   email     String    @unique
@@ -19,10 +20,13 @@ model User {
   updatedAt DateTime  @updatedAt
 
   // Relações
-  materials Material[]     @relation("UserMaterials") // um usuário pode descartar vários materiais
+  materials Material[]     @relation("UserMaterials")
   descartes Descarte[]
+
+  @@map("users")
 }
-//João
+
+// João
 model Material {
   id             Int       @id @default(autoincrement())
   name           String
@@ -37,7 +41,10 @@ model Material {
   // Relações
   users     User[]     @relation("UserMaterials")
   machines  Machine[]
+
+  @@map("materials")
 }
+
 // Giovanna
 model Enterprise {
   id        Int      @id @default(autoincrement())
@@ -52,6 +59,8 @@ model Enterprise {
 
   // Relações
   machines Machine[]
+
+  @@map("enterprises")
 }
 
 model Machine {
@@ -59,7 +68,7 @@ model Machine {
   name        String
   type        String
   status      String
-  amoutn Float
+  amoutn      Float
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
 
@@ -71,6 +80,8 @@ model Machine {
   material   Material   @relation(fields: [materialId], references: [id])
   enterprise Enterprise @relation(fields: [enterpriseId], references: [id])
   descartes  Descarte[]
+
+  @@map("machines")
 }
 
 // João
@@ -86,4 +97,6 @@ model Descarte {
   // Relações
   user    User    @relation(fields: [userId], references: [id])
   machine Machine @relation(fields: [machineId], references: [id])
+
+  @@map("descartes")
 }
