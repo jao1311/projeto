@@ -38,7 +38,7 @@ model Material {
   users     User[]     @relation("UserMaterials")
   machines  Machine[]
 }
-
+// Giovanna
 model Enterprise {
   id        Int      @id @default(autoincrement())
   cnpj      String   @unique
