@@ -30,7 +30,10 @@ app.use((err, _req, res, _next) => {
             error: 'Registro não encontrado'
         });
     }
-    resizeTo.status(500).json({error: 'Erro interno'});
+    res.status(500).json({error: 'Erro interno'});
 });
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log ('http://localhost:${PORT}'));
 
 
