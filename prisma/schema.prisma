@@ -73,6 +73,7 @@ model Machine {
   descartes  Descarte[]
 }
 
+// João
 model Descarte {
   userId    Int
   machineId Int
