@@ -1,7 +1,7 @@
 import prisma from '../prisma.js';
 
 //nome da funcao (recebendo,responder,proximo)
-export const UserControler= {
+export const UserController= {
     async store(req, res, next){
         try{
             const {id,  email, pass, name,  cpf, phone } = req.body;
