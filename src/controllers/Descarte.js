@@ -1,5 +1,4 @@
-import e from 'cors';
-import prisma from '../prisma';
+import prisma from '../prisma.js';
 export const DescarteController = {
     async store(req, res, next){
         try{

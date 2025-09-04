@@ -1,11 +1,11 @@
+import cors from 'cors';
 import 'dotenv/config';
 import express from 'express';
-import cors from 'cors';
 
-import descarteRoutes from './routes/descarte'
-import enterpriseRoutes from './routes/enterprise'
-import materialRoutes from './routes/material'
-import userRoutes from './routes/user'
+import descarteRoutes from './routes/descarte.js';
+import enterpriseRoutes from './routes/enterprise.js';
+import materialRoutes from './routes/material.js';
+import userRoutes from './routes/user.js';
 
 const app = express();
 app.use(cors());
