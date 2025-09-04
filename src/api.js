@@ -14,7 +14,7 @@ app.use(express.json());
 app.use('/users',userRoutes);
 app.use('/descartes',descarteRoutes);
 app.use('/materiais',materialRoutes);
-app.use('enterprises',enterpriseRoutes);
+app.use('/enterprises',enterpriseRoutes);
 
 
 //Middleware de erro simples
