@@ -1,4 +1,4 @@
-import prisma from '../prisma';
+import prisma from '../prisma.js';
 export const MaterialController = {
     async store(req, res, next){
         try{
