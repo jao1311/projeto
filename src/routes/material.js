@@ -3,5 +3,5 @@ import { MaterialController } from '../controllers/Material.js';
 
 const route = Router( );
 
-Router.post('/', MaterialController.store);
+route.post('/', MaterialController.store);
 export default route;

@@ -3,6 +3,6 @@ import { DescarteController } from '../controllers/descarte.js';
 
 const route = Router( );
 
-Router.post('/', DescarteController.store);
+route.post('/', DescarteController.store);
 
 export default route;
