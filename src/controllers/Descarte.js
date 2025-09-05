@@ -7,8 +7,8 @@ export const DescarteController = {
             
             const d = await prisma.material.create({
                 data : {
-                    userId,
-                    machineId
+                    userId: Number(userId),
+                    machineId: Number(machineId)
                 }
             });
             res.status(201).json(d);
