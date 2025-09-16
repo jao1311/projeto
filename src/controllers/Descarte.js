@@ -5,7 +5,7 @@ export const DescarteController = {
 
             const {userId, machineId} = req.body;
             
-            const d = await prisma.material.create({
+            const d = await prisma.descarte.create({
                 data : {
                     userId: Number(userId),
                     machineId: Number(machineId)
