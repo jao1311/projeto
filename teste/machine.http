@@ -1,0 +1,10 @@
+POST http://localhost:3000/users HTTP/1.1
+Content-Type: application/json
+
+{
+    "id" : 1,
+    "name": "Máquina 1",
+    "type" : "Coletora",
+    "status": "Ativa",
+    "amount": 50.0
+}

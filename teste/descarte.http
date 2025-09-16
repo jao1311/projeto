@@ -7,3 +7,7 @@ content-type: application/json
     "machineId" : 1
                 
 }
+
+### Ler todos descartes
+GET http://localhost:3000/descartes HTTP/1.1
+Content-Type: aplication/json
