@@ -1,7 +1,8 @@
-POST https://localhost:300/materiais HTTP/1.1
+POST http://localhost:3000/materiais HTTP/1.1
 content-type: application/json
 
 {
+    "id": 1,
     "name": "Tijolo",
     "type": "Pedra",
     "pollutionLevel": 5,

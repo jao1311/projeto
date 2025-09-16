@@ -1,10 +1,10 @@
 import { Router } from 'express';
-import { DescarteController } from '../controllers/descarte.js';
+import { DescarteController } from '../controllers/Descarte.js';
 
 const route = Router( );
 
 route.post('/', DescarteController.store);
-route.post('/', DescarteController.index);
+route.get('/', DescarteController.index);
 
 
 export default route;
