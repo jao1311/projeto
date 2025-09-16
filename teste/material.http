@@ -2,10 +2,13 @@ POST https://localhost:300/materiais HTTP/1.1
 content-type: application/json
 
 {
-    "name": "Abc",
+    "name": "Tijolo",
     "type": "Pedra",
     "pollutionLevel": "5",
     "weight": "1.5kg",
     "rewardPoints": "2K",
     "amount": "21"
 }
+
+### Ler todos usuarios
+GET http://localhost:3000/materiais
