@@ -1,0 +1,12 @@
+POST https://localhost:3000/enterprises HTTP/1.1
+content-type: application/json
+
+{
+   
+    "cnpj" : "99.999.999/9999-99",
+    "adress" : "Rua",
+    "area" : "Reciclagem",
+    "name" : "Ecoponto",
+    "urlImage" :"teste",
+    "isActive" : true
+}
