@@ -1,11 +1,18 @@
+##Criando um usuário
 POST http://localhost:3000/users HTTP/1.1
 Content-Type: application/json
 //tabela de user
 {
     "nome" : "João Silva",
     "cpf" : "123.456.789-00",
-    "Eemail" : "Gabilala@gamil.com",
+    "Email" : "Gabilala@gamil.com",
     "phone" : "(11) 91234-5678",
     "pass" : "senhaSegura123",
-    "id" : 1
+    "id" : 1 ,
+    "data:": "aaaa-mm-dd"
 }
+
+### Ler todos Usuários
+
+GET http://localhost:3000/users HTTP/1.1
+Content-type: application/json
