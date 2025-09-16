@@ -15,5 +15,10 @@ export const EnterpriseController = {
         }catch(err){
             next(err)
         }
-    }
+    },
+     async index(req, res, next){
+        const enterprises = await prisma.enterprise.findMany()
+
+        res.status(200).json(enterprises)
+     },
     }

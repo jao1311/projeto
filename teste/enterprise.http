@@ -1,3 +1,4 @@
+### Criando um usuário
 POST https://localhost:3000/enterprises HTTP/1.1
 content-type: application/json
 
@@ -10,3 +11,8 @@ content-type: application/json
     "urlImage" :"teste",
     "isActive" : true
 }
+
+### ler todos usuarios
+
+GET http://localhost:3000/enterprises HTTP/1.1
+content-type: application/json
