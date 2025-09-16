@@ -85,13 +85,13 @@ model Machine {
 
 // João
 model Descarte {
+  id          Int       @id @default(autoincrement())
   userId    Int
   machineId Int
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  // PK composta
-  @@id([userId, machineId])
+
 
   // Relações
   user    User    @relation(fields: [userId], references: [id])
