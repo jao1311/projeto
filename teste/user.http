@@ -1,0 +1,50 @@
+POST http://localhost:3000/users HTTP/1.1
+Content-Type: application/json
+//tabela de user
+{
+    "nome" : "João Silva",
+    "cpf" : "123.456.789-00",
+    "Eemail" : "Gabilala@gamil.com",
+    "phone" : "(11) 91234-5678",
+    "pass" : "senhaSegura123",
+    "id" : 1
+}
+//vou fazer a tabela de material 
+{
+    "name": "Plástico",
+    "type": "Reciclável",
+    "pollutionLevel": 2.5,
+    "weight": 1.2,
+    "rewardPoints": 10,
+    "amount": 100.0
+
+}
+
+// tabela de empresa
+{
+    "cnpj": "12.345.678/0001-99",
+    "adress": "Rua das Flores, 123",
+    "area": "Reciclagem",
+    "name": "EcoRecicla",
+    "urlImage": "http://example.com/image.png",
+    "isActive": true
+}
+
+//  tabela model Machine
+{
+    "id" : 1,
+    "name": "Máquina 1",
+    "type" : "Coletora",
+    "status": "Ativa",
+    "amount": 50.0
+}
+// de model Descarte
+{
+    "id": 1,
+    "date": "2023-10-01T10:00:00Z",
+    "quantity": 5.0,
+    "userId": 1,
+    "materialId": 1,
+    "machineId": 1
+
+}
