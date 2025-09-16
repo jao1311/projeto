@@ -15,5 +15,10 @@ export const DescarteController = {
         }catch(err){
             next(err);
         }
+    },
+    async index(req, res, next){
+        const descartes = await prisma.descarte.findMany()
+
+        res.status(200).json(descartes)
     }
 }

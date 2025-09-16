@@ -4,11 +4,12 @@ content-type: application/json
 {
     "name": "Tijolo",
     "type": "Pedra",
-    "pollutionLevel": "5",
-    "weight": "1.5kg",
-    "rewardPoints": "2K",
-    "amount": "21"
+    "pollutionLevel": 5,
+    "weight": 1.5,
+    "rewardPoints": 2000,
+    "amount": 21
 }
 
-### Ler todos usuarios
-GET http://localhost:3000/materiais
+### Ler todos materiais
+GET http://localhost:3000/materiais HTTP/1.1
+Content-Type: aplication/json
