@@ -14,5 +14,5 @@ content-type: application/json
 
 ### ler todos usuarios
 
-GET http://localhost:3000/enterprises HTTP/1.1
+GET https://localhost:3000/enterprises HTTP/1.1
 content-type: application/json
