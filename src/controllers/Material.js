@@ -19,5 +19,10 @@ export const MaterialController = {
         }catch(err){
             next(err);
         }
+    },
+    async index(req, res, next){
+        const materiais = await prisma.material.findMany()
+
+        res.status(200).json(materiais)
     }
 }
