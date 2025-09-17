@@ -17,6 +17,11 @@ export const DescarteController = {
         }
     },
     async index(req, res, next){
+
+        let query ={}
+
+        if (req.query.userId) query = {userId: req.query.userId}
+        if (req.query.machineId) query = {machineId: req.query.machineId}
         const descartes = await prisma.descarte.findMany()
 
         res.status(200).json(descartes)
