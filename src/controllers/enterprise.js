@@ -17,12 +17,12 @@ export const EnterpriseController = {
         }
     },
      async index(req, res, next){
-        const enterprises = await prisma.enterprise.findMany(
-            where,{
+        const enterprises = await prisma.enterprise.findMany({
+            where:{
                 published: false,
-              },
-        )
+              }
+     })
 
         res.status(200).json(enterprises)
      },
-    }
+}
