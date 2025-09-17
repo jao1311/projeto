@@ -4,11 +4,11 @@ import prisma from '../prisma.js';
 export const UserController= {
     async store(req, res, next){
         try{
-            const {id,  email, pass, name,  cpf, phone } = req.body;
+            const {email, pass, name,  cpf, phone } = req.body;
 
             const u = await prisma.user.create({
                 data: { 
-                    id,  
+                     
                     email, 
                     pass,
                     name,   
@@ -24,9 +24,13 @@ export const UserController= {
         }
     },
     async index(req, res, next){
-        const users = await prisma.user.findMany()
+        const users = await prisma.user.findMany({
+            where:{
+                name: req.query.name,
+            }
+        })
 
         res.status(200).json(users)
-    }
+    },
 
 }
