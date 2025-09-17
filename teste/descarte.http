@@ -11,3 +11,7 @@ Content-Type: application/json
 ### Ler todos descartes
 GET http://localhost:3000/descartes HTTP/1.1
 Content-Type: aplication/json
+
+###
+GET http://localhost:3000/descartes?userId=1 HTTP/1.1
+Content-Type: aplication/json
