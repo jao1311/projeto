@@ -1,21 +1,33 @@
+// vou ter que criar uma rota para cadastrar maquinas e já fiz o post quero agora fazer o get
+
 import prisma from '../prisma.js';
 
 export const MachineController = {
     async store(req, res, next) {
         try {
-            const { id, name, type, status, amount } = req.body;
+            const {  name, status, amoutn, enterpriseId } = req.body;
 
             const machine = await prisma.machine.create({
                 data: {
-                    id,
+                   
                     name,
-                    type,
                     status,
-                    amount
+                    amoutn,
+                    enterpriseId,
                 }
             });
 
             res.status(201).json(machine);
+        } catch (err) {
+            next(err);
+        }
+    },
+    async index(_req, res, next) {
+        try {
+            // aqui eu tenho que passar pelos 
+            if (re)
+            const machines = await prisma.machine.findMany();
+            res.json(machines);
         } catch (err) {
             next(err);
         }

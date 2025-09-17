@@ -39,7 +39,7 @@ model Material {
 
   // Relações
   users     User[]     @relation("UserMaterials")
-  machines  Machine[]
+ 
 
   @@map("materials")
 }
@@ -65,18 +65,18 @@ model Enterprise {
 model Machine {
   id          Int       @id @default(autoincrement())
   name        String
-  type        String
+ 
   status      String
   amoutn      Float
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
 
   // FKs
-  materialId   Int
+ 
   enterpriseId Int
 
   // Relações
-  material   Material   @relation(fields: [materialId], references: [id])
+
   enterprise Enterprise @relation(fields: [enterpriseId], references: [id])
   descartes  Descarte[]
 
