@@ -7,11 +7,16 @@ content-type: application/json
     "cnpj" : "99.999.999/9999-99",
     "adress" : "Rua",
     "area" : "Reciclagem",
-    "name" : "Ecoponto",
+    "name" : "nao",
     "urlImage" :"teste",
     "isActive" : true
 }
 
 ### ler todos usuarios
 GET http://localhost:3000/enterprises HTTP/1.1
+content-type: application/json
+
+### Ler usuarios
+
+GET http://localhost:3000/enterprises?name=nao HTTP/1.1
 content-type: application/json
