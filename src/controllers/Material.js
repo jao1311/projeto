@@ -24,7 +24,7 @@ export const MaterialController = {
 
         let query = {}
 
-        if (req.query.name) query = {name: req.query.name}
+        if (req.query.name) query = {name: {like : `%${req.query.name}%` } }
         if (req.query.type) query = {type: req.query.type}
         if (req.query.pollutionLevel) query = {pollutionLevel: req.query.pollutionLevel}
         const materiais = await prisma.material.findMany({
