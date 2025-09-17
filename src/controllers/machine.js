@@ -25,7 +25,6 @@ export const MachineController = {
     async index(_req, res, next) {
         try {
             // aqui eu tenho que passar pelos 
-            if (re)
             const machines = await prisma.machine.findMany();
             res.json(machines);
         } catch (err) {
