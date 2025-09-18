@@ -81,17 +81,13 @@ export const MachineController = {
         if (req.body.status) body.status = req.body.status;
         if (req.body.amoutn) body.amoutn = req.body.amoutn;
         if (req.body.enterpriseId) body.enterpriseId = req.body.enterpriseId;
-        const { name, status, amoutn, enterpriseId } = body;
+   
     
         // garante que existe e atualiza
         const updated = await prisma.machine.update({
             where: { id },
-            data: {
-                name,
-                status,
-                amoutn,
-                enterpriseId
-            }
+            data: body
+            
          });
       
         res.status(200).json(updated);
