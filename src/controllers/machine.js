@@ -74,9 +74,7 @@ export const MachineController = {
         try {
         const id = Number(req.params.id);
  
-        let body = {}
-
-        
+        const { name, status, amoutn, enterpriseId } = req.body;
     
         // garante que existe e atualiza
         const updated = await prisma.machine.update({
