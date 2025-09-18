@@ -7,7 +7,7 @@ content-type: application/json
     "cnpj" : "99.994.999/9999-99",
     "adress" : "Rua",
     "area" : "Reciclagem",
-    "name" : "nao",
+    "name" : "gio",
     "urlImage" :"teste",
     "isActive" : true
 }
@@ -32,10 +32,14 @@ content-type: application/json
 
 ### Atualizar usuario pelo id
 
-PUT   http://localhost:3000/enterprises/1
+PUT   http://localhost:3000/enterprises/4
 content-type: application/json
 
 {
     "adress" : "Episcopal",
-    "area" : "Limpeza"
+    "area" : "Limpeza",
+    "cnpj" : "99.995.999/9999-99",
+    "name" : "gio",
+    "urlImage" :"test",
+    "isActive" : true
 }
