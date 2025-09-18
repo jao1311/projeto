@@ -4,6 +4,7 @@ import express from 'express';
 
 import descarteRoutes from './routes/descarte.js';
 import enterpriseRoutes from './routes/enterprise.js';
+import machineRoutes from './routes/machine.js';
 import materialRoutes from './routes/material.js';
 import userRoutes from './routes/user.js';
 
@@ -15,7 +16,7 @@ app.use('/users',userRoutes);
 app.use('/descartes',descarteRoutes);
 app.use('/materiais',materialRoutes);
 app.use('/enterprises',enterpriseRoutes);
-
+app.use('/machines',machineRoutes);
 
 //Middleware de erro simples
 app.use((err, _req, res, _next) => {
