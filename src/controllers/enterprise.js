@@ -17,12 +17,16 @@ export const EnterpriseController = {
         }
     },
      async index(req, res, next){
-        const enterprises = await prisma.enterprise.findMany(
-            where,{
-                published: false,
-              },
-        )
+        let query = {}
+
+        if(req.query.name) query = {name: {contains : req.query.name } }
+        if(req.query.area) query = {area:req.query.area}
+
+
+        const enterprises = await prisma.enterprise.findMany({
+            where: query
+        })
 
         res.status(200).json(enterprises)
      },
-    }
+}

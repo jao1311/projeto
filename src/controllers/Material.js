@@ -21,7 +21,15 @@ export const MaterialController = {
         }
     },
     async index(req, res, next){
-        const materiais = await prisma.material.findMany()
+
+        let query = {}
+
+        if (req.query.name) query = {name: {contains : req.query.name } }
+        if (req.query.type) query = {type: req.query.type}
+        if (req.query.pollutionLevel) query = {pollutionLevel: req.query.pollutionLevel}
+        const materiais = await prisma.material.findMany({
+            where: query
+        })
 
         res.status(200).json(materiais)
     }
