@@ -1,5 +1,3 @@
-// vou ter que criar uma rota para cadastrar maquinas e já fiz o post quero agora fazer o get
-
 import prisma from '../prisma.js';
 
 export const MachineController = {
@@ -25,15 +23,15 @@ export const MachineController = {
 
     async index(req, res, next) {
         try {
-            let query = {};
+            const where = {};
         
-            if (req.query.name) query = { name: {contains: req.query.name} };
-            if (req.query.status) query = {status: req.query.status}
-            if (req.query.amoutn) query = {amoutn: req.query.amoutn}
-            if (req.query.enterpriseId) query = {enterpriseId: req.query.enterpriseId}
+            if (req.query.name) where.name = { contains: req.query.name };
+            if (req.query.status) where.status = req.query.status;
+            if (req.query.amoutn) where.amoutn = Number(req.query.amoutn);
+            if (req.query.enterpriseId) where.enterpriseId = Number(req.query.enterpriseId);
 
             const machines = await prisma.machine.findMany({
-                where: query
+                where
             });
 
             res.status(200).json(machines);
@@ -70,4 +68,31 @@ export const MachineController = {
      }
     }
     
+    ,
+
+    async update(req, res, _next){
+        try {
+        const id = Number(req.params.id);
+ 
+        let body = {}
+
+        
+    
+        // garante que existe e atualiza
+        const updated = await prisma.machine.update({
+            where: { id },
+            data: {
+                name,
+                status,
+                amoutn,
+                enterpriseId
+            }
+         });
+      
+        res.status(200).json(updated);
+        } catch (err) {
+            res.status(404).json({error: "Machine not found!"})
+     }
+    }
+
 }
