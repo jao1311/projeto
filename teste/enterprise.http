@@ -29,3 +29,13 @@ content-type: application/json
 ### Delete
 DELETE  http://localhost:3000/enterprises/3
 content-type: application/json
+
+### Atualizar usuario pelo id
+
+PUT   http://localhost:3000/enterprises/1
+content-type: application/json
+
+{
+    "adress" : "Episcopal",
+    "area" : "Limpeza"
+}

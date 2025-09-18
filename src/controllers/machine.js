@@ -1,3 +1,5 @@
+
+
 import prisma from '../prisma.js';
 
 export const MachineController = {
@@ -73,20 +75,19 @@ export const MachineController = {
     async update(req, res, _next){
         try {
         const id = Number(req.params.id);
- 
-        let body = {}
+        let body = {};
 
-        
+        if (req.body.name)  body.name = req.body.name;
+        if (req.body.status) body.status = req.body.status;
+        if (req.body.amoutn) body.amoutn = req.body.amoutn;
+        if (req.body.enterpriseId) body.enterpriseId = req.body.enterpriseId;
+   
     
         // garante que existe e atualiza
         const updated = await prisma.machine.update({
             where: { id },
-            data: {
-                name,
-                status,
-                amoutn,
-                enterpriseId
-            }
+            data: body
+            
          });
       
         res.status(200).json(updated);
