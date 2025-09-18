@@ -12,30 +12,30 @@ content-type: application/json
 
 ### Ler todos materiais
 GET http://localhost:3000/materiais HTTP/1.1
-Content-Type: aplication/json
+Content-Type: application/json
 
 ### Filtra Materiais
 
 GET http://localhost:3000/materiais?nome=Ti HTTP/1.1
-Content-Type: aplication/json
+Content-Type: application/json
 
 ### Ler material pelo ID
 
 GET http://localhost:3000/materiais/4 HTTP/1.1
-Content-Type: aplication/json
+Content-Type: application/json
 
 ### Deleta o material pelo ID
 
 DELETE  http://localhost:3000/materiais/7 HTTP/1.1
-Content-Type: aplication/json
+Content-Type: application/json
 
 ### Atualiza o material pelo ID
 
 PUT  http://localhost:3000/materiais/2 HTTP/1.1
-Content-Type: aplication/json
+Content-Type: application/json
 
 {
-    "name": "Pedra",
+    "name": "pedra",
     "type": "Tijolo",
     "pollutionLevel": 9,
     "weight": 6.1,

@@ -27,3 +27,14 @@ Content-type: application/json
 ### Deletar usuario pelo id
 DELETE http://localhost:3000/users/3
 Content-type: application/json
+
+### Atualizar usuario pelo id
+PUT http://localhost:3000/users/1
+Content-type: application/json
+
+{
+    "name": "Rafaela Saraiva",
+    "email" : "rafaela.saraiva@gamil.com",
+    "cpf" : "189.458.789-11",
+    "phone": "(16) 91235-5678"
+}
