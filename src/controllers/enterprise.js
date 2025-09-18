@@ -60,5 +60,31 @@ export const EnterpriseController = {
         }catch(err){
             res.status(404).json({error:"Não encontrado"})
         }
+     },
+
+     async update(req, res, _next){
+        try{
+
+            const id = Number(req.params.id)
+
+            let body = {}
+
+        if(req.body.adress) body.adress = req.body.name  
+        if(req.body.area) body.area = req.query.area
+
+    
+            let e = await prisma.enterprise.delete({
+
+                where: {id},
+                data: body
+
+                
+            })
+    
+            res.status(200).json(e)
+        }catch(err){
+            console.log(err)
+            res.status(404).json({error:"Não encontrado"})
+        }
      }
 }
