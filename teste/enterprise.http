@@ -4,7 +4,7 @@ content-type: application/json
 
 {
    
-    "cnpj" : "99.999.999/9999-99",
+    "cnpj" : "99.994.999/9999-99",
     "adress" : "Rua",
     "area" : "Reciclagem",
     "name" : "nao",
@@ -19,4 +19,13 @@ content-type: application/json
 ### Ler usuarios
 
 GET http://localhost:3000/enterprises?area=Reciclagem HTTP/1.1
+content-type: application/json
+
+###Ler empresa pelo id
+
+GET http://localhost:3000/enterprises/1
+content-type: application/json
+
+### Delete
+DELETE  http://localhost:3000/enterprises/3
 content-type: application/json
