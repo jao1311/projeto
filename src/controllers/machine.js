@@ -1,6 +1,5 @@
 // vou ter que criar uma rota para cadastrar maquinas e já fiz o post quero agora fazer o get
 
-import { Prisma } from '@prisma/client';
 import prisma from '../prisma.js';
 
 export const MachineController = {
@@ -43,11 +42,32 @@ export const MachineController = {
         }
     }
     ,
-    async show(req, res, next) {
+    async show(req, res, _next){
+        try {
         const id = Number(req.params.id);
     
-        Prisma.machine
-
-   
+        const machine = await prisma.machine.findFirstOrThrow({  where: {id} });
+      
+        res.status(200).json(machine);
+        } catch (err) {
+            res.status(404).json({error: "Machine not found!"})
+     }
     }
+    
+
+
+    ,
+    async delete(req, res, _next){
+        try {
+        const id = Number(req.params.id);
+    
+        // garante que existe e deleta
+        const deleted = await prisma.machine.delete({ where: { id } });
+      
+        res.status(200).json(deleted);
+        } catch (err) {
+            res.status(404).json({error: "Machine not found!"})
+     }
+    }
+    
 }
