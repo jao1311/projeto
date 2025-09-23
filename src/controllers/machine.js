@@ -1,12 +1,26 @@
 
 
+import { Prisma } from '@prisma/client';
 import prisma from '../prisma.js';
 
 export const MachineController = {
     async store(req, res, next) {
         try {
             const {  name, status, amoutn, enterpriseId } = req.body;
+            
+            //aqui eu vou fazer um FindFirst pra ver se a enterprise existe
 
+            let u = await Prisma.enterpriseId.findFirst({
+
+                where: { id: (enterpriseId) }
+            })
+            
+            if (!u) {
+                return res.status(400).json({ error: "Enterprise does not exist!" });
+            }
+
+
+            
             const machine = await prisma.machine.create({
                 data: {
                    
