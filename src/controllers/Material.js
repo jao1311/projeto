@@ -70,9 +70,9 @@ export const MaterialController = {
             if (req.body.name)  body.name = req.body.name;
             if (req.body.type) body.type = req.body.type;
             if (req.body.pollutionLevel) body.pollutionLevel = req.body.pollutionLevel;
-            if (req.body.weight) body.weight = req.body.weight
-            if (req.body.rewardPoints) body.rewardPoints = req.body.rewardPoints
-            if (req.body.amount) body.amount = req.body.amount
+            if (req.body.weight) body.weight = req.body.weight;
+            if (req.body.rewardPoints) body.rewardPoints = req.body.rewardPoints;
+            if (req.body.amount) body.amount = req.body.amount;
 
             const m = await prisma.material.update({
                 where: { id },
@@ -80,6 +80,7 @@ export const MaterialController = {
             });
             res.status(200).json(m)
         }catch(err){
+            console.log(err)
             res.status(404).json({error: "Não Encontrado"})
         }
     }
