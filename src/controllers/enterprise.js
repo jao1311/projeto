@@ -7,6 +7,8 @@ export const EnterpriseController = {
 
             const { cnpj, adress, area, name, urlImage, isActive } = req.body;
         
+            
+
             const e = await prisma.enterprise.create({
                 data: {cnpj, adress, area, name, urlImage, isActive }
             });
